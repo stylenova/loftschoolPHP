@@ -1,0 +1,19 @@
+{% include 'temp/header.twig' %}
+
+<div class="form">
+    <h1>Регистрация!</h1>
+    <div class="desc">
+        Укажите Ваше имя, email, пароль и фото для регистрации
+    </div>
+
+    <form action="register" method="post">
+        <input type="text" name="name" placeholder="Ваше имя:">
+        <input type="number" name="age" placeholder="Ваш возраст:">
+        <input type="text" name="password" placeholder="Ваш пароль:">
+        <textarea  name="desc" cols="40" rows="3" placeholder="Ваше описание:" class="text-desc"></textarea>
+        <input type="file" class="file">
+        <input type="submit" value="Зарегистрироваться" class="link">
+    </form>
+</div>
+
+{% include 'temp/footer.twig' %}
