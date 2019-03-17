@@ -1,16 +1,13 @@
 {% include 'temp/header.twig' %}
 
 <div class="form">
-    <h1>Войти в аккаут!</h1>
-    <div class="desc">
-        Укажите Ваше имя и пароль для входа
+    <div>
+        <h1>Добро пожаловть!</h1>
+        <div class="desc">Для тестирования MVC, Вам надо войти в кабинет или зарегистрироваться</div>
     </div>
-
-    <form action="" method="post">
-        <input type="text" placeholder="Ваше имя:">
-        <input type="number" placeholder="Ваш пароль:" class="acc">
-        <input type="submit" value="Войти" class="link">
-    </form>
+    <a href="/user/pageReg" class="link">Регистрация</a>
+    <a href="/user/pageAuth" class="link">Вход</a>
 </div>
+
 
 {% include 'temp/footer.twig' %}

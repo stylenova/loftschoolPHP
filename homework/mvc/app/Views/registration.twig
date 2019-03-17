@@ -2,16 +2,19 @@
 
 <div class="form">
     <h1>Регистрация!</h1>
-    <div class="desc">
-        Укажите Ваше имя, email, пароль и фото для регистрации
-    </div>
-
-    <form action="register" method="post">
-        <input type="text" name="name" placeholder="Ваше имя:">
-        <input type="number" name="age" placeholder="Ваш возраст:">
-        <input type="text" name="password" placeholder="Ваш пароль:">
-        <textarea  name="desc" cols="40" rows="3" placeholder="Ваше описание:" class="text-desc"></textarea>
-        <input type="file" class="file">
+    {% for item in error %}
+        <div class="errors">
+        {{ item | raw }}
+        </div>
+        <br>
+    {% endfor %}
+    <form action="registration" method="post">
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="email" name="email" placeholder="Ваш email">
+        <input type="password" name="password" placeholder="Ваш пароль">
+        <input type="number" name="age" placeholder="Ваш возраст">
+        <textarea  name="desc" cols="40" rows="3" placeholder="Ваше описание" class="text-desc"></textarea>
+        <input type="file" name="file" class="file">
         <input type="submit" value="Зарегистрироваться" class="link">
     </form>
 </div>

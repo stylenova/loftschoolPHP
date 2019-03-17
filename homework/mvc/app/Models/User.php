@@ -2,29 +2,43 @@
 
 namespace App\Models;
 
-class User
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
+class User extends Eloquent
 {
-    protected $users = [
-      'user1', 'user2', 'user3'
-    ];
-    public function all()
+
+//    public static $timestamps = true;
+    protected $fillable = ['name', 'password', 'info','email', 'age', 'photo'];
+
+    static function allUsers($desc)
     {
-        return $this->users;
+        if (isset($desc) && $desc === true) {
+            return self::all()->sortByDesc('age');
+        }
+        return self::all()->sortBy('age');
     }
 
-    public function first()
+    public function getById($id)
     {
-        return $this->users[0];
+        return $this->where('id', $id)->get();
     }
 
-    public function get($id)
+    public function getUserByLogin($login)
     {
-        return $this->users[$id];
+        return $this->where('email', $login)->first()->toArray();
     }
 
 
-    public function store($name, $user_id, $info)
+    public function store($userData)
     {
-        //
+        $user = User::create($userData);
+        return $user->id;
+
     }
+
+    public function getAdminById($id)
+    {
+        return $this->where('id', $id)->first('admin');
+    }
+
 }

@@ -1,9 +1,10 @@
 <?php
-define('APPLICATION_PATH', getcwd().'/../app/');
-define('PUBLIC_PATH', getcwd());
+session_start();
+//session_destroy();
+require '../app/constants.php';
 
-require APPLICATION_PATH.'../vendor/autoload.php';
-new \App\Core\Config(); //Bootstrap.php //Core //Loader
+require APPLICATION_PATH . '../vendor/autoload.php';
+$main = new \App\Core\Config(); //Bootstrap.php //Core //Loader
 
 
 // /users/test
@@ -19,7 +20,7 @@ if (!empty($routes[1])) {
 if (!empty($routes[2])) {
     $action_name = $routes[2]; //create
 }
-$filename = APPLICATION_PATH."controllers/".strtolower($controller_name).".php";
+$filename = APPLICATION_PATH . "controllers/" . strtolower($controller_name) . ".php";
 try {
     if (file_exists($filename)) {
         require_once $filename;
@@ -27,7 +28,7 @@ try {
         throw new Exception("File not found");
     }
 
-    $classname = '\App\\'.ucfirst($controller_name);// \App\Posts
+    $classname = '\App\\' . ucfirst($controller_name); // \App\Posts
 
     if (class_exists($classname)) {
         $controller = new $classname();
@@ -41,8 +42,7 @@ try {
         throw new Exception("Method not found");
     }
 } catch (Exception $e) {
-    require APPLICATION_PATH."errors/404.php";
+    require APPLICATION_PATH . "errors/404.php";
 }
 
 //router + controller + model
-

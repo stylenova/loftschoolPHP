@@ -20,7 +20,7 @@ class View
         $this->twig = new Twig_Environment($this->loader);
     }
 
-    public function twigLoad(string $filename, array $data)
+    public function twigRender(string $filename, array $data)
     {
         echo $this->twig->render($filename.".twig", $data);
     }

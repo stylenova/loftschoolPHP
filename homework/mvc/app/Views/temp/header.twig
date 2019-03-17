@@ -4,7 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
-    <link rel="stylesheet" href="../../../public/css/main.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+        body {
+            background: #161925;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0 auto 10px;
+            padding: 0;
+            font-size: 40px;
+            color: #161925;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input,
+        .text-desc {
+            display: block;
+            width: 80%;
+            margin: 0 auto 10px;
+            padding: 15px 20px;
+            border: 1px solid #dadada;
+            border-radius: 5px;
+        }
+
+        input.acc {
+            margin-bottom: 25px;
+        }
+
+        input[type="file"] {
+            width: 90%;
+            border: 1px solid #fff;
+            padding: 15px 0;
+        }
+
+        .desc {
+            margin-bottom: 25px;
+            color: #235789;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .container {
+            height: 100%;
+            color: #333;
+        }
+
+        .content,
+        .form {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 370px;
+            margin: 0 auto;
+            padding: 30px 25px 40px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #f3f3f3;
+            background: #fff;
+            box-shadow: 0 0 2.033rem rgba(203, 206, 211, 0.36);
+            font-size: 0;
+        }
+
+        .content {
+            top: 50%;
+            width: 80%;
+            min-height: 70%;
+            border-radius: 5px;
+        }
+
+        .link,
+        input[type="submit"] {
+            display: inline-block;
+            margin: 0 4px;
+            padding: 15px 30px;
+            background: crimson;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .errors {
+            font-size: 14px;
+            color: crimson;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>

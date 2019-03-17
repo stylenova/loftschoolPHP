@@ -6,6 +6,7 @@ class Main extends MainController
 {
     public function index()
     {
-        echo 'hi';
+        echo 'all work';
     }
+
 }
