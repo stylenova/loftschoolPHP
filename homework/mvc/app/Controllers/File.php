@@ -4,7 +4,6 @@ namespace App;
 
 class File extends MainController
 {
-
     public function show()
     {
 
