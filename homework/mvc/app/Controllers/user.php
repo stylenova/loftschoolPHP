@@ -86,13 +86,15 @@ class User extends MainController
             'info' => 'alpha_numeric',
         ]);
 
-        if ($result === true) {
+        if ($result) {
             $userData = $_POST;
+
             if (!empty($_FILES['photo']['tmp_name'])) {
-                $fileContent = file_get_contents($_FILES['photo']['tmp_name']);
-                $filePath = PUBLIC_PATH . '/img/' . $_FILES['photo']['name'];
-                file_put_contents($filePath, $fileContent);
-                $userData['photo'] = '/img/' . $_FILES['photo']['name'];
+                $filePath = '/img/' . basename($_FILES['photo']['name']);
+                $filePut = PUBLIC_PATH . $filePath;
+                $tmp_name = $_FILES["photo"]["tmp_name"];
+                move_uploaded_file($tmp_name, "$filePut");
+                $userData['phone'] = $filePath;
             }
             $userID = $this->user->store($userData);
             if ($userID) {

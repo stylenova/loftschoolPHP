@@ -8,14 +8,14 @@
         </div>
         <br>
     {% endfor %}
-    <form action="registration" method="post">
+    <form action="registration" method="post"  enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Ваше имя">
         <input type="email" name="email" placeholder="Ваш email">
         <input type="password" name="password" placeholder="Ваш пароль">
         <input type="number" name="age" placeholder="Ваш возраст">
-        <textarea  name="desc" cols="40" rows="3" placeholder="Ваше описание" class="text-desc"></textarea>
-        <input type="file" name="file" class="file">
-        <input type="submit" value="Зарегистрироваться" class="link">
+        <textarea  name="info" cols="40" rows="3" placeholder="Ваше описание" class="text-desc"></textarea>
+        <input type="file" name="photo" class="file">
+        <input type="submit" value="Регистрация" class="link">
     </form>
 </div>
 
