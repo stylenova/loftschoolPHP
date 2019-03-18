@@ -1,8 +1,8 @@
 <?php
-
 namespace App;
 
 use GUMP;
+use App\Models\File as File;
 
 class User extends MainController
 {
@@ -55,7 +55,7 @@ class User extends MainController
 
     public function login()
     {
-        $login = $_POST['login'];
+        $login = $_POST['email'];
         $user = $this->user->getUserByLogin($login);
         if (!$user) {
             $this->view->twigRender('login', ['info' => 'No user with this login and password 123']);
@@ -67,7 +67,7 @@ class User extends MainController
             die;
         }
         $_SESSION['user_id'] = $user['id'];
-        header('Location: /user/showlist');
+        header('Location: /user/administrator');
 
     }
 
@@ -90,11 +90,15 @@ class User extends MainController
             $userData = $_POST;
 
             if (!empty($_FILES['photo']['tmp_name'])) {
-                $filePath = '/img/' . basename($_FILES['photo']['name']);
+                $fileName = basename($_FILES['photo']['name']);
+                $filePath = '/img/' . $fileName;
                 $filePut = PUBLIC_PATH . $filePath;
                 $tmp_name = $_FILES["photo"]["tmp_name"];
                 move_uploaded_file($tmp_name, "$filePut");
-                $userData['phone'] = $filePath;
+                $userData['photo'] = $filePath;
+
+//                File::create(['name' => $fileName]);
+                (new File())->store($fileName);
             }
             $userID = $this->user->store($userData);
             if ($userID) {

@@ -34,7 +34,6 @@ class File extends Eloquent
             )
         );
         return $file->id;
-
     }
 
 }
