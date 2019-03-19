@@ -57,6 +57,7 @@ class User extends MainController
     {
         $login = $_POST['email'];
         $user = $this->user->getUserByLogin($login);
+
         if (!$user) {
             $this->view->twigRender('login', ['info' => 'No user with this login and password 123']);
             die;
@@ -97,10 +98,13 @@ class User extends MainController
                 move_uploaded_file($tmp_name, "$filePut");
                 $userData['photo'] = $filePath;
 
-//                File::create(['name' => $fileName]);
-                (new File())->store($fileName);
+                $userID = $this->user->store($userData);
+                File::create(["name" => $filePath]);
+            } else {
+                $userID = $this->user->store($userData);
             }
-            $userID = $this->user->store($userData);
+
+
             if ($userID) {
                 header('Location: /');
                 die;

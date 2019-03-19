@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class File extends Eloquent
 {
-    protected $fillable = ['name', 'user_id'];
+    protected $fillable = ['name'];
 
     static function allFiles()
     {
@@ -25,12 +25,11 @@ class File extends Eloquent
     }
 
 
-    public function store($userId, $userPhoto)
+    public function store($userPhoto)
     {
         $file = File::create(
             array(
                 'name' => $userPhoto,
-                'user_id' => $userId
             )
         );
         return $file->id;

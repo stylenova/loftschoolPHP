@@ -24,7 +24,7 @@ class MainController
             header('Location:/user/administrator');
             die;
         } else {
-            $this->view->twigRender('index', []);
+            $this->view->twigRender('login', []);
         }
     }
 
