@@ -104,8 +104,11 @@ class User extends MainController
                 $userID = $this->user->store($userData);
             }
 
-
             if ($userID) {
+                $login = $_POST['email'];
+                $user = $this->user->getUserByLogin($login);
+                $_SESSION['user_id'] = $user['id'];
+
                 header('Location: /');
                 die;
             }
