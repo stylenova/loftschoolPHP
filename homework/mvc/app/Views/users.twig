@@ -1,8 +1,52 @@
 {% include 'temp/header.twig' %}
 
 <div class="content">
-    <h1>Ваш аккаут</h1>
+    <h1 class="main-title">Ваш аккаут</h1>
 
+    <a href="/user/logout/">Выйти из аккаунта</a>
+    <br>
+    <h2 class="list-user-tite">Список пользователей</h2>
+    {% if isAdmin %}
+    <a href="/user/registration/">Регистрация пользователя</a>
+    {% endif %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>
+                {% if sort %}
+                    <a href="/user/showlist/" class="table-title">Взрослый <i class="fas fa-sort-down"></i></a>
+                {% else %}
+                    <a href="/user/showlist/?sort=desc" class="table-title">Взрослый <i class="fas fa-sort-up"></i></a>
+                {% endif %}
+            </th>
+            <th>Возраст</th>
+            <th>Аватар</th>
+            <th>Управление</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>
+                    {% if user.age >= 18 %}
+                        Совершеннолетний
+                    {% else %}
+                        Несовершеннолетний
+                    {% endif %}
+                </td>
+                <td>{{ user.age }}</td>
+                <td><img src="{{ user.photo }}" class="avatar"></td>
+                <td>
+                    <a href="/user/show/?id={{ user.id }}" class="btn btn-success">Показать инфу</a>
+                    <a href="/file/show/?id={{ user.id }}" class="btn btn-info">Все фото</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 {% include 'temp/footer.twig' %}

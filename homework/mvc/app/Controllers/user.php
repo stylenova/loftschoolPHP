@@ -99,7 +99,7 @@ class User extends MainController
                 $userData['photo'] = $filePath;
 
                 $userID = $this->user->store($userData);
-                File::create(["name" => $filePath]);
+                File::create(['name' => $filePath, 'user_id' => $userID]);
             } else {
                 $userID = $this->user->store($userData);
             }
