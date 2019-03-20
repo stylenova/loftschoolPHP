@@ -5,10 +5,13 @@
 
     <a href="/user/logout/">Выйти из аккаунта</a>
     <br>
-    <h2 class="list-user-tite">Список пользователей</h2>
-    {% if isAdmin %}
-    <a href="/user/registration/">Регистрация пользователя</a>
-    {% endif %}
+    <div class="title-cont">
+        <h2 class="list-user-tite">Список пользователей</h2>
+        {% if isAdmin %}
+            <a href="/user/registration/">Регистрация пользователя</a>
+        {% endif %}
+    </div>
+
     <table class="table">
         <thead>
         <tr>
