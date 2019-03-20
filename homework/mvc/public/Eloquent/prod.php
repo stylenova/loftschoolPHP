@@ -29,6 +29,7 @@ Capsule::schema()->create('prod', function ($table) {
     $table->integer('size');
     $table->text('photo');
     $table->text('info')->nullable();
+    $table->text('category_id');
     $table->timestamps();
 });
 Capsule::schema()->dropIfExists('category');
