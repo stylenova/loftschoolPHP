@@ -1,0 +1,20 @@
+{% include 'temp/header.twig' %}
+<div class="content">
+    <a href="/" class="btn btn-primary">Назад</a>
+    <h1 class="main-title" style="margin: 0 0 50px">Фото пользователя</h1>
+    <div class="photo-cont" style="margin: 0 0 50px">
+        {% for item in images %}
+            <div class="photo">
+                <img src="{{ item.name }}" class="photo-sm">
+            </div>
+        {% endfor %}
+    </div>
+    <h2 class="text-center">Загрузить новые фото</h2>
+    <div class="form-cont">
+        <form action="/file/upload/?id={{ userId }}" method="post" enctype="multipart/form-data" class="form-upload">
+            <input name="photo" type="file" class="input-photo">
+            <button class="btn">Загрузить</button>
+        </form>
+    </div>
+</div>
+{% include 'temp/footer.twig' %}

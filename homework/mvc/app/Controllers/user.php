@@ -12,12 +12,12 @@ class User extends MainController
 
     public function index()
     {
-        echo "users index";
+        echo "Индекс пользователя";
     }
 
     public function create()
     {
-        echo "User create interface";
+        echo "Пользовательский интерфейс созда";
     }
 
     public function pageReg()
@@ -50,7 +50,7 @@ class User extends MainController
             return;
         }
 
-        echo 'No user with this id!';
+        echo 'Нет такго пользователя';
     }
 
     public function login()
@@ -59,12 +59,12 @@ class User extends MainController
         $user = $this->user->getUserByLogin($login);
 
         if (!$user) {
-            $this->view->twigRender('login', ['info' => 'No user with this login and password 123']);
+            $this->view->twigRender('login', ['info' => 'Нет такого логина или пароля']);
             die;
         }
         $gotPassword = $_POST['password'];
         if ($gotPassword !== $user['password']) {
-            $this->view->twigRender('login', ['info' => 'No user with this login and password 123']);
+            $this->view->twigRender('login', ['info' => 'Нет такого логина или пароля']);
             die;
         }
         $_SESSION['user_id'] = $user['id'];

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
@@ -74,6 +75,7 @@
             background: #9197AE;
             border-radius: 10px;
             text-decoration: none;
+            border: none;
         }
 
         .btn:hover {
@@ -154,6 +156,48 @@
             text-decoration: none;
         }
 
+        .photo-cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .photo {
+            margin: 0 10px;
+            border: 2px solid #ccc;
+        }
+
+        .photo-sm {
+            display: block;
+            max-width: 170px;
+            max-height: 130px;
+        }
+
+        .form-cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-upload {
+            width: 400px!important;
+        }
+
+        .input-photo {
+            width: 250px!important;
+            display: inline-block;
+        }
+
+        .fas {
+            position: relative;
+            top: 5px;
+            left: 10px;
+        }
+
+        .fa-sort-down {
+            top: -2px;
+        }
     </style>
 </head>
 
