@@ -25,12 +25,14 @@ Capsule::schema()->create('prod', function ($table) {
     $table->increments('id');
     $table->string('title');
     $table->integer('price');
+    $table->integer('color');
+    $table->integer('size');
     $table->text('photo');
     $table->text('info')->nullable();
     $table->timestamps();
 });
-Capsule::schema()->dropIfExists('prod-info');
-Capsule::schema()->create('prod-info', function ($table) {
+Capsule::schema()->dropIfExists('category');
+Capsule::schema()->create('category', function ($table) {
     $table->increments('id');
     $table->integer('category');
     $table->integer('prod_id');
