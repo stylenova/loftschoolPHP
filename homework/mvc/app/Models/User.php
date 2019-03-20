@@ -40,4 +40,8 @@ class User extends Eloquent
         return $this->where('id', $id)->first('admin');
     }
 
+    public function photos()
+    {
+        return $this->hasMany('File', 'user_id', 'id');
+    }
 }

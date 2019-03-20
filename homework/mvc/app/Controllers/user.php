@@ -130,6 +130,4 @@ class User extends MainController
         $user = $this->user->getAdminById($userId);
         return $user['admin'];
     }
-
-
 }
